@@ -1,0 +1,11 @@
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\client.exe.config
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\client.exe
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\client.pdb
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.csproj.AssemblyReference.cache
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.csproj.SuggestedBindingRedirects.cache
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.Form1.resources
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.Properties.Resources.resources
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.csproj.GenerateResource.cache
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.csproj.CoreCompileInputs.cache
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.exe
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.pdb

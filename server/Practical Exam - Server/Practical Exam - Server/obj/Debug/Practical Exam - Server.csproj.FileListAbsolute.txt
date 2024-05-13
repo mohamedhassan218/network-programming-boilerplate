@@ -1,0 +1,11 @@
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\bin\Debug\Practical Exam - Server.exe.config
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\bin\Debug\Practical Exam - Server.exe
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\bin\Debug\Practical Exam - Server.pdb
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical Exam - Server.csproj.AssemblyReference.cache
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical Exam - Server.csproj.SuggestedBindingRedirects.cache
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical_Exam___Server.Server.resources
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical_Exam___Server.Properties.Resources.resources
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical Exam - Server.csproj.GenerateResource.cache
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical Exam - Server.csproj.CoreCompileInputs.cache
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical Exam - Server.exe
+D:\Learning\np_practical\network-programming-boilerplate\server\Practical Exam - Server\Practical Exam - Server\obj\Debug\Practical Exam - Server.pdb

@@ -1,0 +1,47 @@
+- MENTORIA:
+- Parallel:
+- MATLAB Algorithms:
+-------------------------------------------------
+Sunday 5:00 PM 5/5/2024
+
+- Some modifications on chatbot:			""
+- Golang task:						""
+- ML Presentation:					""
+- Task III video:						""
+===========================================================
+MENTORIA Updates:
+	- Integrate with 3 different things: Gemini - OpenAI - ??
+	- Save the data of the user like tokens:
+	- Add .log file type:
+ 	
+	-> Why not to use Redis??
+===========================================================
+README files needed:
+1. Learning Database.
+2. Java Basics.
+3. Algorithm Projects.
+4. OOP Project.
+5. C_sharp.
+6. Algorithms Unplugged.
+
+/////////////////////////////////////////////////////
+OpenAI Alternatives:
+- OpenAI:	[sk-proj-zg3moC9Igvf2AT3Km4qAT3BlbkFJCkF03pto5TMVdhLC4ASt]
+- HuggingFace	[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]
+- Google	[AIzaSyCnSVI-GmSvkPXhUV-WO00lZdlsthBYl5g]
+- Cohere	[jdVri8cqvEqmrgAuuO2LTsth9gxf7M4ZSHHowa9w]
+- FireworksAI	[S0L4qUfxrRanZVbmjU0ULsRASTJ2n53o5zTNPp32oFf3Vmbi]
+- TogetherAI	[5214855c4cfbdb7a1ccaabc4802ffef4af9a861946d20b7c8eaf2d4507027d2c]
+- NLP Cloud 	[0911e067efb371ed83766447094a17e7c68d0e5a]
+
+/////////////////////////////////////////////////////
+Security Algorithms:
+- Double Traonsposition.
+- Playfair.
+- One Time Pad / One Time Pad 2.
+- Vigenère Tableau Cipher.
+- Affine Cipher.
+- Hill Cipher.
+- A5/1.
+- RC4.
+- DES.
