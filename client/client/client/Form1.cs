@@ -23,7 +23,6 @@ namespace client
         bool flag = true;
 
 
-
         public Form1()
         {
             InitializeComponent();
@@ -54,7 +53,7 @@ namespace client
             ChatArea.Text += tmp;
             ChatArea.AppendText(Environment.NewLine);
 
-            while (true)
+            while (flag)
             {
                 tmp = await Task.Run(() => sr.ReadLine());
                 tmp = "Server: " + tmp;
@@ -65,82 +64,77 @@ namespace client
 
         private async void RequestFileButton_Click(object sender, EventArgs e)
         {
-            // Send the file path
-            sw.WriteLine(FilePathArea.Text);
-            sw.Flush();
-
-            // Recieve the length of the data
-            string fileSize = await Task.Run(() => sr.ReadLine());
-
-            // out is called parameter modifier
-            if (int.TryParse(fileSize, out int fileSizeParsed))
+            flag = false;
+            try
             {
-                byte[] bytes = new byte[200];
-                int recievedBytes = 0, tmp;
+                // Send the file path
+                sw.WriteLine(FilePathArea.Text);
+                sw.Flush();
 
-                using (FileStream fs = new FileStream("tmp.txt", FileMode.Create))
+                // Recieve the length of the data
+                string fileSize = await Task.Run(() => sr.ReadLine());
+
+                // out is called parameter modifier
+                if (int.TryParse(fileSize, out int fileSizeParsed))
                 {
-                    while (recievedBytes < fileSizeParsed && (tmp = ns.Read(bytes, 0, bytes.Length)) > 0)
-                    {
-                        fs.Write(bytes, 0, tmp);
-                        recievedBytes += tmp;
-                    }
-                }
+                    byte[] bytes = new byte[200];
+                    int recievedBytes = 0, tmp;
 
-                string result = File.ReadAllText("tmp.txt");
-                MonitorFileSharingArea.Text = result;
+                    using (FileStream fs = new FileStream("tmp.txt", FileMode.Create))
+                    {
+                        while (recievedBytes < fileSizeParsed && (tmp = ns.Read(bytes, 0, bytes.Length)) > 0)
+                        {
+                            fs.Write(bytes, 0, tmp);
+                            recievedBytes += tmp;
+                        }
+                    }
+
+                    string result = File.ReadAllText("tmp.txt");
+                    MonitorFileSharingArea.Text = result;
+                }
+                else
+                {
+                    MonitorFileSharingArea.Text = "Invalid file Size";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MonitorFileSharingArea.Text = "Invalid file Size";
+                // Handle the exception
+                MonitorFileSharingArea.Text = "Error receiving file: " + ex.Message;
             }
         }
 
         private async void RequestDirectoryButton_Click(object sender, EventArgs e)
         {
-            // Send directory path to server
-            string directoryPath = DirectoryArea.Text;
-            await Task.Run(() => sw.WriteLine(directoryPath));
+            flag = false;
+            string path = DirectoryArea.Text;
+            sw.WriteLine(path);
             sw.Flush();
+            DirectoryListBox.Items.Clear();
+            string response;
+            while ((response = await sr.ReadLineAsync()) != null)
+            {
+                // Debugging: Check response format
+                var parts = response.Split('|');
+                {
+                    ListViewItem item = new ListViewItem(parts[0]);
+                    item.SubItems.Add(parts[1]);
+                    item.SubItems.Add(parts.Length > 2 ? parts[2] : "");
+                    DirectoryListBox.Items.Add(item);
+                }
 
-            // Receive and display directory information
-            ReceiveDirectoryInfo();
+            }
+            DirectoryListBox.View = View.LargeIcon;
         }
 
-        private void ReceiveDirectoryInfo()
+        private void DirectoryArea_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                string response = sr.ReadLine();
 
-                if (response.StartsWith("FilesCount:"))
-                {
-                    int filesCount = int.Parse(response.Split(':')[1]);
-                    int directoriesCount = int.Parse(sr.ReadLine().Split(':')[1]);
+        }
 
-                    // Read and display file names
-                    for (int i = 0; i < filesCount; i++)
-                    {
-                        string fileName = sr.ReadLine();
-                        DirectoryListBox.Items.Add(fileName);
-                    }
+        private void DirectoryListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-                    // Read and display directory names
-                    for (int i = 0; i < directoriesCount; i++)
-                    {
-                        string dirName = sr.ReadLine().TrimEnd('/');
-                        DirectoryListBox.Items.Add(dirName);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(response);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
         }
     }
 }

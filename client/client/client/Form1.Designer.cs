@@ -46,8 +46,8 @@
             this.ConnectButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.RequestFileButton = new System.Windows.Forms.Button();
-            this.DirectoryListBox = new System.Windows.Forms.ListBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.DirectoryListBox = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -159,6 +159,7 @@
             this.DirectoryArea.Name = "DirectoryArea";
             this.DirectoryArea.Size = new System.Drawing.Size(304, 34);
             this.DirectoryArea.TabIndex = 4;
+            this.DirectoryArea.TextChanged += new System.EventHandler(this.DirectoryArea_TextChanged);
             // 
             // groupBox5
             // 
@@ -197,7 +198,6 @@
             this.StartVideoButton.TabIndex = 9;
             this.StartVideoButton.Text = "Start";
             this.StartVideoButton.UseVisualStyleBackColor = true;
-            //this.StartVideoButton.Click += new System.EventHandler(this.StartVideoButton_Click);
             // 
             // ConnectButton
             // 
@@ -230,12 +230,12 @@
             // 
             // DirectoryListBox
             // 
-            this.DirectoryListBox.FormattingEnabled = true;
-            this.DirectoryListBox.ItemHeight = 16;
+            this.DirectoryListBox.HideSelection = false;
             this.DirectoryListBox.Location = new System.Drawing.Point(6, 61);
             this.DirectoryListBox.Name = "DirectoryListBox";
-            this.DirectoryListBox.Size = new System.Drawing.Size(347, 180);
-            this.DirectoryListBox.TabIndex = 10;
+            this.DirectoryListBox.Size = new System.Drawing.Size(347, 181);
+            this.DirectoryListBox.TabIndex = 9;
+            this.DirectoryListBox.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
@@ -285,8 +285,8 @@
         private System.Windows.Forms.PictureBox VideoStreamBox;
         private System.Windows.Forms.Button StopVideoButton;
         private System.Windows.Forms.Button StartVideoButton;
-        private System.Windows.Forms.ListBox DirectoryListBox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ListView DirectoryListBox;
     }
 }
 

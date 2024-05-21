@@ -20,6 +20,7 @@ namespace Practical_Exam___Server
         NetworkStream ns;
         StreamReader sr;
         StreamWriter sw;
+        bool flag = true;
 
         public Server()
         {
@@ -52,6 +53,7 @@ namespace Practical_Exam___Server
 
         private async void GoButton_Click(object sender, EventArgs e)
         {
+            flag = true;
             string tmp = MessageArea.Text;
             sw.WriteLine(tmp);
             sw.Flush();
@@ -69,37 +71,77 @@ namespace Practical_Exam___Server
             }
         }
 
-
         private async void WaitFileButton_Click(object sender, EventArgs e)
         {
-            // File Sharing
-            // Recieve the file path
-            string filePath = await Task.Run(() => sr.ReadLine());
+            MessageBox.Show("Entered wait.");
+            flag = false;
+            try
+            {
+                // File Sharing
+                // Recieve the file path
+                string filePath = await Task.Run(() => sr.ReadLine());
 
-            // Read all data in the file
-            byte[] allBytes = File.ReadAllBytes(filePath);
+                MessageBox.Show("Received file path.");
 
-            // Send the length of the data (using StreamWriter)
-            sw.WriteLine(allBytes.Length);
-            sw.Flush();
+                // Read all data in the file
+                byte[] allBytes = File.ReadAllBytes(filePath);
 
-            // Send the data itself (using NetworkStream)
-            ns.Write(allBytes, 0, allBytes.Length);
-            ns.Flush();
-            MnitoringFileSharingArea.Text += "File sent successfully :D";
+                // Send the length of the data (using StreamWriter)
+                sw.WriteLine(allBytes.Length);
+                sw.Flush();
+
+                // Send the data itself (using NetworkStream)
+                ns.Write(allBytes, 0, allBytes.Length);
+                ns.Flush();
+                MnitoringFileSharingArea.Text += "File sent successfully :D";
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception
+                MnitoringFileSharingArea.Text += "Error sending file: " + ex.Message;
+            }
         }
 
         private async void WaitDirectoryButton_Click(object sender, EventArgs e)
         {
-            // Wait for client request
-            string directoryPath = await Task.Run(() => sr.ReadLine());
+            flag = false;
+            // Read the directory path asynchronously from the stream
+            string path = await Task.Run(() => sr.ReadLine());
 
-            // Send directory information to client
-            SendDirectoryInfo(directoryPath);
+            // Create a DirectoryInfo object to access directory information
+            DirectoryInfo directoryInfo = new DirectoryInfo(path);
+
+            // StringBuilder to store the directory listing response
+            StringBuilder response = new StringBuilder();
+
+            // Loop through each directory in the specified directory
+            foreach (var directory in directoryInfo.GetDirectories())
+            {
+                // Append directory name and type (Folder) to the response string
+                response.AppendLine($"{directory.Name}|Folder|");
+            }
+
+            // Loop through each file in the specified directory
+            foreach (var file in directoryInfo.GetFiles())
+            {
+                // Append file name, type (File), and file size in KB to the response string
+                response.AppendLine($"{file.Name}|File|{(file.Length / 1024)} KB");
+            }
+
+            // Write the directory listing response to the network stream asynchronously
+            await sw.WriteAsync(response.ToString());
+
+            // Flush the stream to ensure all data is sent immediately
+            await sw.FlushAsync();
+
+            // Update a UI element (DirectoryMessage) to indicate that the directory information has been sent
+            MonitoringDirectoryInfoArea.Text += "Directory Sent";
+
         }
 
         private void SendDirectoryInfo(string directoryPath)
         {
+            flag = false;
             try
             {
                 if (Directory.Exists(directoryPath))
@@ -139,7 +181,10 @@ namespace Practical_Exam___Server
                 sw.Flush();
             }
         }
-    }
 
-    
+        private void MonitoringDirectoryInfoArea_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

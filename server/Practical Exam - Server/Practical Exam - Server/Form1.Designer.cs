@@ -40,11 +40,11 @@
             this.WaitDirectoryButton = new System.Windows.Forms.Button();
             this.MonitoringDirectoryInfoArea = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ListenButton = new System.Windows.Forms.Button();
-            this.CloseButton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.StopVideoStreaming = new System.Windows.Forms.Button();
             this.StartVideoStreaming = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ListenButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -148,6 +148,7 @@
             this.MonitoringDirectoryInfoArea.Name = "MonitoringDirectoryInfoArea";
             this.MonitoringDirectoryInfoArea.Size = new System.Drawing.Size(328, 160);
             this.MonitoringDirectoryInfoArea.TabIndex = 8;
+            this.MonitoringDirectoryInfoArea.TextChanged += new System.EventHandler(this.MonitoringDirectoryInfoArea_TextChanged);
             // 
             // groupBox4
             // 
@@ -161,6 +162,32 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Monitoring Video Streaming";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(6, 21);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(537, 244);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
+            // StopVideoStreaming
+            // 
+            this.StopVideoStreaming.Location = new System.Drawing.Point(385, 271);
+            this.StopVideoStreaming.Name = "StopVideoStreaming";
+            this.StopVideoStreaming.Size = new System.Drawing.Size(138, 39);
+            this.StopVideoStreaming.TabIndex = 6;
+            this.StopVideoStreaming.Text = "Stop";
+            this.StopVideoStreaming.UseVisualStyleBackColor = true;
+            // 
+            // StartVideoStreaming
+            // 
+            this.StartVideoStreaming.Location = new System.Drawing.Point(41, 271);
+            this.StartVideoStreaming.Name = "StartVideoStreaming";
+            this.StartVideoStreaming.Size = new System.Drawing.Size(138, 39);
+            this.StartVideoStreaming.TabIndex = 7;
+            this.StartVideoStreaming.Text = "Start";
+            this.StartVideoStreaming.UseVisualStyleBackColor = true;
             // 
             // ListenButton
             // 
@@ -180,33 +207,6 @@
             this.CloseButton.TabIndex = 5;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
-            // 
-            // StopVideoStreaming
-            // 
-            this.StopVideoStreaming.Location = new System.Drawing.Point(385, 271);
-            this.StopVideoStreaming.Name = "StopVideoStreaming";
-            this.StopVideoStreaming.Size = new System.Drawing.Size(138, 39);
-            this.StopVideoStreaming.TabIndex = 6;
-            this.StopVideoStreaming.Text = "Stop";
-            this.StopVideoStreaming.UseVisualStyleBackColor = true;
-            // 
-            // StartVideoStreaming
-            // 
-            this.StartVideoStreaming.Location = new System.Drawing.Point(41, 271);
-            this.StartVideoStreaming.Name = "StartVideoStreaming";
-            this.StartVideoStreaming.Size = new System.Drawing.Size(138, 39);
-            this.StartVideoStreaming.TabIndex = 7;
-            this.StartVideoStreaming.Text = "Start";
-            this.StartVideoStreaming.UseVisualStyleBackColor = true;
-            this.StartVideoStreaming.Click += new System.EventHandler(this.StartVideoStreaming_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(6, 21);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(537, 244);
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
             // 
             // Server
             // 
