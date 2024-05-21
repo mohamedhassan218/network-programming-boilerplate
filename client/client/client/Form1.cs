@@ -9,8 +9,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AForge.Video;
+using AForge.Video.DirectShow;
 
 namespace client
 {
@@ -21,6 +24,7 @@ namespace client
         StreamReader sr;
         StreamWriter sw;
         bool flag = true;
+        private CancellationTokenSource cancellationTokenSource;
 
 
         public Form1()
@@ -133,6 +137,55 @@ namespace client
         }
 
         private void DirectoryListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void StartVideoButton_Click(object sender, EventArgs e)
+        {
+            string tempFilePath = Path.GetTempFileName();
+            byte[] buffer = new byte[1024];
+
+            long fileSize = long.Parse(await sr.ReadLineAsync());
+            long bytesReceived = 0;
+
+            using (FileStream fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
+            {
+                while (bytesReceived < fileSize)
+                {
+                    int bytesToRead = (int)Math.Min(buffer.Length, fileSize - bytesReceived);
+                    int bytesRead = await ns.ReadAsync(buffer, 0, bytesToRead);
+
+                    if (bytesRead == 0)
+                    {
+                        break;
+                    }
+
+                    await fs.WriteAsync(buffer, 0, bytesRead);
+                    bytesReceived += bytesRead;
+                }
+            }
+
+            // Play the video from the temporary file
+            // You can use a media player control or a method to play the video file
+            PlayVideo(tempFilePath);
+        }
+
+        private void PlayVideo(string filePath)
+        {
+            try
+            {
+                Process.Start(filePath);
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception if the video file cannot be played
+                MessageBox.Show("Error playing video: " + ex.Message);
+            }
+        }
+
+
+        private void StopVideoButton_Click(object sender, EventArgs e)
         {
 
         }

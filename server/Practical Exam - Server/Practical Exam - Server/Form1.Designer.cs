@@ -168,6 +168,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(6, 21);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(537, 244);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
@@ -179,6 +180,7 @@
             this.StopVideoStreaming.TabIndex = 6;
             this.StopVideoStreaming.Text = "Stop";
             this.StopVideoStreaming.UseVisualStyleBackColor = true;
+            this.StopVideoStreaming.Click += new System.EventHandler(this.StopVideoStreaming_Click);
             // 
             // StartVideoStreaming
             // 
@@ -188,6 +190,7 @@
             this.StartVideoStreaming.TabIndex = 7;
             this.StartVideoStreaming.Text = "Start";
             this.StartVideoStreaming.UseVisualStyleBackColor = true;
+            this.StartVideoStreaming.Click += new System.EventHandler(this.StartVideoStreaming_Click);
             // 
             // ListenButton
             // 

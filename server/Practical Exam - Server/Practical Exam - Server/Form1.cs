@@ -10,6 +10,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AForge.Video;
+using AForge.Video.DirectShow;
 
 namespace Practical_Exam___Server
 {
@@ -21,6 +23,8 @@ namespace Practical_Exam___Server
         StreamReader sr;
         StreamWriter sw;
         bool flag = true;
+        private VideoCaptureDevice videoSource;
+
 
         public Server()
         {
@@ -183,6 +187,30 @@ namespace Practical_Exam___Server
         }
 
         private void MonitoringDirectoryInfoArea_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void StartVideoStreaming_Click(object sender, EventArgs e)
+        {
+            string videoPath = @"C:\path\to\your\video.mp4";
+            byte[] buffer = new byte[1024];
+
+            using (FileStream fs = new FileStream(videoPath, FileMode.Open, FileAccess.Read))
+            {
+                long fileSize = fs.Length;
+                await sw.WriteLineAsync(fileSize.ToString());
+
+                int bytesRead;
+                while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    await ns.WriteAsync(buffer, 0, bytesRead);
+                }
+            }
+        }
+
+
+        private void StopVideoStreaming_Click(object sender, EventArgs e)
         {
 
         }

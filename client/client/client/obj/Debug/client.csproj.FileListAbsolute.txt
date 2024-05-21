@@ -9,3 +9,10 @@ D:\Learning\np_practical\network-programming-boilerplate\client\client\client\ob
 D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.csproj.CoreCompileInputs.cache
 D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.exe
 D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.pdb
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\AForge.dll
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\AForge.Video.DirectShow.dll
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\AForge.Video.dll
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\AForge.xml
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\AForge.Video.xml
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\bin\Debug\AForge.Video.DirectShow.xml
+D:\Learning\np_practical\network-programming-boilerplate\client\client\client\obj\Debug\client.csproj.CopyComplete

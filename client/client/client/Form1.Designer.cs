@@ -178,6 +178,7 @@
             this.VideoStreamBox.Location = new System.Drawing.Point(6, 21);
             this.VideoStreamBox.Name = "VideoStreamBox";
             this.VideoStreamBox.Size = new System.Drawing.Size(493, 273);
+            this.VideoStreamBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.VideoStreamBox.TabIndex = 10;
             this.VideoStreamBox.TabStop = false;
             // 
@@ -189,6 +190,7 @@
             this.StopVideoButton.TabIndex = 8;
             this.StopVideoButton.Text = "Stop";
             this.StopVideoButton.UseVisualStyleBackColor = true;
+            this.StopVideoButton.Click += new System.EventHandler(this.StopVideoButton_Click);
             // 
             // StartVideoButton
             // 
@@ -198,6 +200,7 @@
             this.StartVideoButton.TabIndex = 9;
             this.StartVideoButton.Text = "Start";
             this.StartVideoButton.UseVisualStyleBackColor = true;
+            this.StartVideoButton.Click += new System.EventHandler(this.StartVideoButton_Click);
             // 
             // ConnectButton
             // 
