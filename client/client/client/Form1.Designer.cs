@@ -37,22 +37,23 @@
             this.MonitorFileSharingArea = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.DirectoryListBox = new System.Windows.Forms.ListView();
             this.RequestDirectoryButton = new System.Windows.Forms.Button();
             this.DirectoryArea = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.VideoStreamBox = new System.Windows.Forms.PictureBox();
+            this.ImageBox = new System.Windows.Forms.PictureBox();
             this.StopVideoButton = new System.Windows.Forms.Button();
             this.StartVideoButton = new System.Windows.Forms.Button();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.RequestFileButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.DirectoryListBox = new System.Windows.Forms.ListView();
+            this.RecieveImageButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VideoStreamBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -142,6 +143,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Monitoring Directory Info";
             // 
+            // DirectoryListBox
+            // 
+            this.DirectoryListBox.HideSelection = false;
+            this.DirectoryListBox.Location = new System.Drawing.Point(6, 61);
+            this.DirectoryListBox.Name = "DirectoryListBox";
+            this.DirectoryListBox.Size = new System.Drawing.Size(347, 181);
+            this.DirectoryListBox.TabIndex = 9;
+            this.DirectoryListBox.UseCompatibleStateImageBehavior = false;
+            // 
             // RequestDirectoryButton
             // 
             this.RequestDirectoryButton.Location = new System.Drawing.Point(316, 21);
@@ -163,7 +173,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.VideoStreamBox);
+            this.groupBox5.Controls.Add(this.ImageBox);
             this.groupBox5.Controls.Add(this.StopVideoButton);
             this.groupBox5.Controls.Add(this.StartVideoButton);
             this.groupBox5.Location = new System.Drawing.Point(904, 12);
@@ -173,14 +183,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Video Streaming";
             // 
-            // VideoStreamBox
+            // ImageBox
             // 
-            this.VideoStreamBox.Location = new System.Drawing.Point(6, 21);
-            this.VideoStreamBox.Name = "VideoStreamBox";
-            this.VideoStreamBox.Size = new System.Drawing.Size(493, 273);
-            this.VideoStreamBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.VideoStreamBox.TabIndex = 10;
-            this.VideoStreamBox.TabStop = false;
+            this.ImageBox.Location = new System.Drawing.Point(6, 21);
+            this.ImageBox.Name = "ImageBox";
+            this.ImageBox.Size = new System.Drawing.Size(493, 273);
+            this.ImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImageBox.TabIndex = 10;
+            this.ImageBox.TabStop = false;
             // 
             // StopVideoButton
             // 
@@ -231,14 +241,15 @@
             this.RequestFileButton.UseVisualStyleBackColor = true;
             this.RequestFileButton.Click += new System.EventHandler(this.RequestFileButton_Click);
             // 
-            // DirectoryListBox
+            // RecieveImageButton
             // 
-            this.DirectoryListBox.HideSelection = false;
-            this.DirectoryListBox.Location = new System.Drawing.Point(6, 61);
-            this.DirectoryListBox.Name = "DirectoryListBox";
-            this.DirectoryListBox.Size = new System.Drawing.Size(347, 181);
-            this.DirectoryListBox.TabIndex = 9;
-            this.DirectoryListBox.UseCompatibleStateImageBehavior = false;
+            this.RecieveImageButton.Location = new System.Drawing.Point(1187, 428);
+            this.RecieveImageButton.Name = "RecieveImageButton";
+            this.RecieveImageButton.Size = new System.Drawing.Size(132, 44);
+            this.RecieveImageButton.TabIndex = 8;
+            this.RecieveImageButton.Text = "Recieve Image";
+            this.RecieveImageButton.UseVisualStyleBackColor = true;
+            this.RecieveImageButton.Click += new System.EventHandler(this.RecieveImageButton_Click);
             // 
             // Form1
             // 
@@ -246,6 +257,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1435, 556);
+            this.Controls.Add(this.RecieveImageButton);
             this.Controls.Add(this.RequestFileButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.ConnectButton);
@@ -263,7 +275,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.VideoStreamBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,11 +297,12 @@
         private System.Windows.Forms.Button RequestFileButton;
         private System.Windows.Forms.Button RequestDirectoryButton;
         private System.Windows.Forms.TextBox DirectoryArea;
-        private System.Windows.Forms.PictureBox VideoStreamBox;
+        private System.Windows.Forms.PictureBox ImageBox;
         private System.Windows.Forms.Button StopVideoButton;
         private System.Windows.Forms.Button StartVideoButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ListView DirectoryListBox;
+        private System.Windows.Forms.Button RecieveImageButton;
     }
 }
 

@@ -45,6 +45,8 @@
             this.StartVideoStreaming = new System.Windows.Forms.Button();
             this.ListenButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.ImportButton = new System.Windows.Forms.Button();
+            this.SendImageButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -211,12 +213,34 @@
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
             // 
+            // ImportButton
+            // 
+            this.ImportButton.Location = new System.Drawing.Point(1075, 387);
+            this.ImportButton.Name = "ImportButton";
+            this.ImportButton.Size = new System.Drawing.Size(138, 39);
+            this.ImportButton.TabIndex = 6;
+            this.ImportButton.Text = "Import Image";
+            this.ImportButton.UseVisualStyleBackColor = true;
+            this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
+            // 
+            // SendImageButton
+            // 
+            this.SendImageButton.Location = new System.Drawing.Point(1075, 447);
+            this.SendImageButton.Name = "SendImageButton";
+            this.SendImageButton.Size = new System.Drawing.Size(138, 39);
+            this.SendImageButton.TabIndex = 7;
+            this.SendImageButton.Text = "Send Image";
+            this.SendImageButton.UseVisualStyleBackColor = true;
+            this.SendImageButton.Click += new System.EventHandler(this.SendImageButton_Click);
+            // 
             // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
             this.ClientSize = new System.Drawing.Size(1384, 526);
+            this.Controls.Add(this.SendImageButton);
+            this.Controls.Add(this.ImportButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.ListenButton);
             this.Controls.Add(this.groupBox4);
@@ -256,6 +280,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button StopVideoStreaming;
         private System.Windows.Forms.Button StartVideoStreaming;
+        private System.Windows.Forms.Button ImportButton;
+        private System.Windows.Forms.Button SendImageButton;
     }
 }
 

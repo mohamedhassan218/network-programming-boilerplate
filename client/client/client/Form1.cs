@@ -25,7 +25,7 @@ namespace client
         StreamWriter sw;
         bool flag = true;
         private CancellationTokenSource cancellationTokenSource;
-
+        string savePath;
 
         public Form1()
         {
@@ -188,6 +188,42 @@ namespace client
         private void StopVideoButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        // PRACTICAL EXAM CODE
+        // Button clicked by the client to be able to receive the image from the server.
+        private async void RecieveImageButton_Click(object sender, EventArgs e)
+        {
+            // Open the dialog to enable the user to choose a path to save the image inside.
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 1;
+
+
+            // Get the path to save the image in it.
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+                savePath = openFileDialog.FileName;
+            // NOT FINISHED
+
+            byte[] sizeData = new byte[4];
+            await ns.ReadAsync(sizeData, 0, sizeData.Length);
+            int imageSize = BitConverter.ToInt32(sizeData, 0);
+            byte[] imageData = new byte[imageSize];
+            int totalBytesRead = 0;
+            while (totalBytesRead < imageSize)
+            {
+                int bytesRead = await ns.ReadAsync(imageData, totalBytesRead, imageSize - totalBytesRead);
+                totalBytesRead += bytesRead;
+            }
+            ImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            using (MemoryStream memoryStream = new MemoryStream(imageData))
+            {
+                ImageBox.Image = Image.FromStream(memoryStream);
+            }
+
+            // Save the received image inside the specified path.
+            // TODO
         }
     }
 }

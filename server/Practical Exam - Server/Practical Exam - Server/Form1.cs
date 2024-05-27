@@ -23,6 +23,7 @@ namespace Practical_Exam___Server
         StreamReader sr;
         StreamWriter sw;
         bool flag = true;
+        string imagePath;
         private VideoCaptureDevice videoSource;
 
 
@@ -193,26 +194,39 @@ namespace Practical_Exam___Server
 
         private async void StartVideoStreaming_Click(object sender, EventArgs e)
         {
-            string videoPath = @"C:\path\to\your\video.mp4";
-            byte[] buffer = new byte[1024];
-
-            using (FileStream fs = new FileStream(videoPath, FileMode.Open, FileAccess.Read))
-            {
-                long fileSize = fs.Length;
-                await sw.WriteLineAsync(fileSize.ToString());
-
-                int bytesRead;
-                while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    await ns.WriteAsync(buffer, 0, bytesRead);
-                }
-            }
+            
         }
 
 
         private void StopVideoStreaming_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        // PRACTICAL EXAM CODE
+        // Button to open the file dialog and enable the server to specify an image.
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 1;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                imagePath = openFileDialog.FileName;
+                pictureBox2.Image = new System.Drawing.Bitmap(openFileDialog.FileName, false);
+            }
+        }
+
+        // Button that sends the image length then the image data to the client.
+        private void SendImageButton_Click(object sender, EventArgs e)
+        {
+            byte[] imageData = File.ReadAllBytes(imagePath);
+            byte[] sizeData = BitConverter.GetBytes(imageData.Length);
+            ns.Write(sizeData, 0, sizeData.Length);
+            ns.Flush();
+            ns.Write(imageData, 0, imageData.Length);
+            ns.Flush();
         }
     }
 }
